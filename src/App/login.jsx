@@ -8,6 +8,7 @@ import { UPDATE_USER } from "../store/Reducers/user";
 import { setCookie } from "../CommonFunctions/Cookies";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -24,7 +25,6 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Log in
             const loginResponse = await login(formData.email, formData.password);
             const token = loginResponse.token;
             dispatch(UPDATE_USER(loginResponse))

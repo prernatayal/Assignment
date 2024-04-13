@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux"
 import Dashboard from '../App/dashboard'
 import SignUp from "../App/signup";

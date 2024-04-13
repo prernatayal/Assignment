@@ -5,6 +5,7 @@ import Label from "../common/Label";
 import TextInput from "../common/TextInput";
 import { signup } from "../CommonFunctions/ReqresService";
 import { useNavigate } from "react-router-dom"
+
 const SignUp = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -19,7 +20,6 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Log in
             const loginResponse = await signup(formData.email, formData.password);
             const token = loginResponse.token;
             navigate("/login")
