@@ -4,6 +4,21 @@ import Label from "../common/Label";
 import TextInput from "../common/TextInput";
 
 const Login = () => {
+
+    const [formData, setFormData] = useState({
+        email: "",
+        password: ""
+    });
+
+    const handleChange = (e) => {
+        let [name, value] = e.target;
+        setFormData({ ...formData, [name]: value });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div className="bg-[#15294e] flex justify-center items-center w-full h-svh font-serif">
             <div className="bg-white w-1/2 rounded-3xl h-1/2 flex shadow-md shadow-[#787878]">
@@ -12,19 +27,23 @@ const Login = () => {
                 </div>
                 <div className="p-5 w-1/2">
                     <h1 className="text-2xl text-center font-bold uppercase">Login</h1>
-                    <form className="mt-5">
+                    <form className="mt-5" onSubmit={handleSubmit} >
                         <div className="flex flex-col gap-2 mt-5">
                             <div className="w-full">
-                                <Label labelText={"Username:-"} />
-                                <TextInput type={"text"} />
+                                <Label labelText={"Email:-"} />
+                                <TextInput type={"email"} required={true} value={formData?.email}
+                                    name="email"
+                                    onChange={handleChange} />
                             </div>
                             <div>
                                 <Label labelText={"Password:-"} />
-                                <TextInput type={"password"} />
+                                <TextInput type={"password"} required={true} value={formData?.password}
+                                    name="password"
+                                    onChange={handleChange} />
                             </div>
                         </div>
                         <div className="mt-8 flex justify-end">
-                            <Button btnText={"Continue"} />
+                            <Button type="submit" btnText={"Continue"} />
                         </div>
                         <div className="mt-5 text-center">
                             <p className="text-sm font-medium">Do not have an account? <a href="#" className="underline uppercase">Register</a> </p>

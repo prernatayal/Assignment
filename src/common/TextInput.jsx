@@ -1,9 +1,8 @@
-const TextInput = ({ type, value, handleOnChange }, props) => {
+const TextInput = ({ type, value, ...props }) => {
     return (
         <input
             type={type}
             value={value}
-            onChange={handleOnChange}
             className="border border-gray-500 w-full p-2 focus:outline-none mt-1 rounded text-sm"
             {...props}
         />
