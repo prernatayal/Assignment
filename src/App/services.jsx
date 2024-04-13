@@ -24,7 +24,7 @@ const Services = () => {
     return (
         <div className="mt-8 px-5">
             <h1 className="text-xl uppercase font-semibold font-serif text-center">Our Services</h1>
-            <div className="mt-10 grid grid-cols-3 gap-8 px-5">
+            <div className="mt-10 grid sm:grid-cols-3 mb-10 sm:mb-0 gap-8 px-5">
                 {services?.map((item, i) => {
                     return (
                         <div key={i} className="">
